@@ -1,4 +1,4 @@
-class MainLanguageItems {
+class ProjectKeys {
   static const projectTitle = 'Podkes';
   static const homeScreenTitle = 'Trending';
   static const playScreenTitle = 'Now Playing';
