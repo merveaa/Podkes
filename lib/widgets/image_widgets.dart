@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ImageItems {
+class ProjectImages {
   final String splashGirl = "assets/png/splash.png";
   final String podcaster1photo = "assets/png/purple.png";
   final String podcaster2photo = "assets/png/blue.png";

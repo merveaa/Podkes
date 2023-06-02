@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 67, top: 98, right: 68),
               child: RoundedImage(
-                imagePath: ImageItems().splashGirl,
+                imagePath: ProjectImages().splashGirl,
               ),
             ),
             Padding(
@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.5,
                   height: 0.9,
-                  color: ColorItems().mainTextColor,
+                  color: ProjectColors().mainTextColor,
                 ),
               ),
             ),
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   fontSize: 14.5,
                   height: 1.2,
                   fontWeight: FontWeight.normal,
-                  color: ColorItems().defTextColor,
+                  color: ProjectColors().defTextColor,
                 ),
               ),
             ),
@@ -89,7 +89,7 @@ class NextButtonWidget extends StatelessWidget {
       child: Icon(
         size: 40,
         Icons.arrow_forward_rounded,
-        color: ColorItems().nextIconColor,
+        color: ProjectColors().nextIconColor,
       ),
     );
   }
@@ -107,7 +107,7 @@ class Dot2Widget extends StatelessWidget {
       child: Container(
         width: 23,
         height: 8,
-        color: ColorItems().dot2Color,
+        color: ProjectColors().dot2Color,
       ),
     );
   }
@@ -126,7 +126,7 @@ class DotWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 22),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: ColorItems().dotColor,
+        color: ProjectColors().dotColor,
       ),
     );
   }
