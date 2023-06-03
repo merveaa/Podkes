@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:podkes/language/lang.dart';
+import 'package:podkes/screens/play_screen.dart';
 import 'package:podkes/widgets/icon_widgets.dart';
 import 'package:podkes/widgets/image_widgets.dart';
 
@@ -25,11 +26,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset(
-          ProjectIcons().menuIcon,
-          width: 7,
-          height: 7,
-          alignment: const Alignment(0.4, 0),
+        leading: IconButton(
+          onPressed: () {},
+          icon: Image.asset(
+            ProjectIcons().menuIcon,
+            width: 25,
+            height: 25,
+            alignment: const Alignment(0.4, 0),
+          ),
         ),
         title: const Text(
           ProjectKeys.projectTitle,
@@ -97,6 +101,11 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class CustomWidget extends StatelessWidget {
+  final double containerWidth;
+  final double containerHeight;
+
+  CustomWidget({this.containerWidth = 155, this.containerHeight = 155});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -109,18 +118,22 @@ class CustomWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               buildContainerColumn(
-                ProjectColors().podcast1BGColor,
-                PodcastNames.podcast1,
-                Podcasters.podcaster1,
-                ProjectImages().podcaster1photo,
-              ),
+                  ProjectColors().podcast1BGColor,
+                  PodcastNames.podcast1,
+                  Podcasters.podcaster1,
+                  ProjectImages().podcaster1photo, () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PlayScreen()),
+                );
+              }),
               SizedBox(width: 25),
               buildContainerColumn(
-                ProjectColors().podcast2BGColor,
-                PodcastNames.podcast2,
-                Podcasters.podcaster2,
-                ProjectImages().podcaster2photo,
-              ),
+                  ProjectColors().podcast2BGColor,
+                  PodcastNames.podcast2,
+                  Podcasters.podcaster2,
+                  ProjectImages().podcaster2photo,
+                  () {}),
             ],
           ),
           SizedBox(height: 5),
@@ -128,18 +141,18 @@ class CustomWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               buildContainerColumn(
-                ProjectColors().podcast3BGColor,
-                PodcastNames.podcast3,
-                Podcasters.podcaster3,
-                ProjectImages().podcaster3photo,
-              ),
+                  ProjectColors().podcast3BGColor,
+                  PodcastNames.podcast3,
+                  Podcasters.podcaster3,
+                  ProjectImages().podcaster3photo,
+                  () {}),
               SizedBox(width: 25),
               buildContainerColumn(
-                ProjectColors().podcast4BGColor,
-                PodcastNames.podcast4,
-                Podcasters.podcaster4,
-                ProjectImages().podcaster4photo,
-              ),
+                  ProjectColors().podcast4BGColor,
+                  PodcastNames.podcast4,
+                  Podcasters.podcaster4,
+                  ProjectImages().podcaster4photo,
+                  () {}),
             ],
           ),
         ],
@@ -147,11 +160,11 @@ class CustomWidget extends StatelessWidget {
     );
   }
 
-  Widget buildContainerColumn(
-      Color color, String title, String author, String logo) {
+  Widget buildContainerColumn(Color color, String title, String author,
+      String logo, VoidCallback? onPressed) {
     return Column(
       children: [
-        buildContainer(color, logo),
+        buildContainer(color, logo, onPressed),
         SizedBox(
           height: 13,
         ),
@@ -160,35 +173,34 @@ class CustomWidget extends StatelessWidget {
     );
   }
 
-  Widget buildContainer(Color color, String logo) {
-    return Column(
-      children: [
-        Container(
-          width: 155, //kutu boyut
-          height: 155,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4),
-            color: color,
-          ),
-          child: Stack(
-            children: [
-              Positioned.fill(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Container(
-                    width: 170,
-                    height: 135,
-                    child: Image.asset(
-                      logo,
-                      fit: BoxFit.contain,
-                    ),
+  Widget buildContainer(Color color, String logo, VoidCallback? onPressed) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: containerWidth,
+        height: containerHeight,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(4),
+          color: color,
+        ),
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  width: containerWidth + 15, // Adjust width as needed
+                  height: containerHeight - 30, // Adjust height as needed
+                  child: Image.asset(
+                    logo,
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 
@@ -197,27 +209,27 @@ class CustomWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          width: 158,
-          height: 34,
+          width: containerWidth - 2,
+          height: containerWidth / 5,
           child: Text(
             title,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 14,
+              fontSize: containerWidth / 13,
               fontFamily: "Inter",
               fontWeight: FontWeight.w700,
             ),
           ),
         ),
-        SizedBox(height: 4),
+        SizedBox(height: containerWidth / 29),
         SizedBox(
-          width: 74,
+          width: containerWidth / 2, // Adjust width as needed
           height: 17,
           child: Text(
             podcaster,
             style: TextStyle(
               color: Color(0xffcccccc),
-              fontSize: 10,
+              fontSize: containerWidth / 16,
               fontFamily: "Inter",
               fontWeight: FontWeight.w500,
             ),
