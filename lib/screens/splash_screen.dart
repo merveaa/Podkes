@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:podkes/language/colors.dart';
 import 'package:podkes/language/lang.dart';
+import 'package:podkes/screens/home_screen.dart';
 
 import '../widgets/image_widgets.dart';
 
@@ -63,8 +64,6 @@ class _SplashScreenState extends State<SplashScreen> {
               ],
             )
           ],
-
-          // Add other widgets here
         ),
       ),
       floatingActionButton:
@@ -85,7 +84,12 @@ class NextButtonWidget extends StatelessWidget {
       backgroundColor: Colors.white,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(18))),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
+      },
       child: Icon(
         size: 40,
         Icons.arrow_forward_rounded,

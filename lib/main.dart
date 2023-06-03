@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:podkes/language/colors.dart';
 import 'package:podkes/screens/home_screen.dart';
 import 'package:podkes/screens/play_screen.dart';
-//import 'package:podkes/screens/home_screen.dart';
 import 'package:podkes/screens/splash_screen.dart';
 
 void main() {
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
                   centerTitle: true,
                   backgroundColor: Colors.transparent,
                   elevation: 0)),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }
