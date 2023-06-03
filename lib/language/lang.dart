@@ -4,7 +4,7 @@ class ProjectKeys {
   static const playScreenTitle = 'Now Playing';
   static const search = 'Search';
   static const category1 = 'All';
-  static const category2 = 'life';
+  static const category2 = 'Life';
   static const category3 = 'Comedy';
   static const category4 = 'Tech';
   static const def =
