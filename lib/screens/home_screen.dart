@@ -104,7 +104,7 @@ class CustomWidget extends StatelessWidget {
   final double containerWidth;
   final double containerHeight;
 
-  CustomWidget({this.containerWidth = 155, this.containerHeight = 155});
+  CustomWidget({this.containerWidth = 157, this.containerHeight = 157});
 
   @override
   Widget build(BuildContext context) {
@@ -189,8 +189,8 @@ class CustomWidget extends StatelessWidget {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  width: containerWidth + 15, // Adjust width as needed
-                  height: containerHeight - 30, // Adjust height as needed
+                  width: containerWidth + 15,
+                  height: containerHeight - 30,
                   child: Image.asset(
                     logo,
                     fit: BoxFit.fitHeight,
@@ -215,7 +215,7 @@ class CustomWidget extends StatelessWidget {
             title,
             style: TextStyle(
               color: Colors.white,
-              fontSize: containerWidth / 13,
+              fontSize: containerWidth / 11.89,
               fontFamily: "Inter",
               fontWeight: FontWeight.w700,
             ),
@@ -223,7 +223,7 @@ class CustomWidget extends StatelessWidget {
         ),
         SizedBox(height: containerWidth / 29),
         SizedBox(
-          width: containerWidth / 2, // Adjust width as needed
+          width: containerWidth / 2,
           height: 17,
           child: Text(
             podcaster,
@@ -278,7 +278,7 @@ class NavigationBar extends StatelessWidget {
               color: _getIconColor(1),
             ),
             onPressed: () {
-              onItemTapped(1);
+              onItemTapped(1); //shows caegory 'all'. it will be change
             },
           ),
           label: IconLables.lib,

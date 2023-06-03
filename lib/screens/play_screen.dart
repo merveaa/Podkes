@@ -57,7 +57,26 @@ class _PlayScreenState extends State<PlayScreen> {
           const SizedBox(height: 20),
           Image.asset(ProjectImages().fooo2Photo),
           const SizedBox(height: 30),
-          Image.asset(ProjectImages().playPhoto),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Image.asset(ProjectImages().skipbackPhoto),
+                iconSize: 45,
+              ),
+              IconButton(
+                onPressed: () {},
+                iconSize: 65,
+                icon: Image.asset(ProjectImages().playiconPhoto),
+              ),
+              IconButton(
+                onPressed: () {},
+                iconSize: 45,
+                icon: Image.asset(ProjectImages().skipfwdPhoto),
+              ),
+            ],
+          ),
         ]),
       ),
     );
